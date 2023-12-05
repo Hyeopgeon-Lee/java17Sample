@@ -24,6 +24,18 @@ public class NewMethod {
 //        System.out.println("lines : " + lines.count());
 
 
+        // 줄 단위로 나뉘어 있는 문자를 배열로 반환하며, 반환된 데이터는 스트림 가능
+        // 스트림 처리가 가능하기에 병렬 처리 가능하도록 코딩 가능
+        var lines2 = text.lines();
+        System.out.println("lines2 : " + lines2.getClass()); // Stream<String> 타입으로 반환
+        lines2.parallel().forEach(s -> System.out.println("s : " + s));
+        
+
+        // 난 에러가 발생할 것이다. Stream 처리는 1번 사용하면 끝이다.
+        // 앞의 프로그래밍에서 forEach 반복문을 통해 스트림 결과를 가져왔기 때문이다.
+//        System.out.println("lines : " + lines.count());
+
+
         // strip 문자열 공백 제거
         // 기존 trim() 함수 개선된 버전으로 유니코드의 공백들을 전부 제거함
         var text1 = "     안녕하세요.   ";
